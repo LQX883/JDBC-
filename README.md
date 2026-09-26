@@ -88,4 +88,19 @@ mvn -q compile exec:java
 
 演示程序会依次对学院表、学生表执行：新增 → 查询全部 → 按 id 查询 → 更新 → 删除。
 
-截图见 `docs/screenshots/` 目录。
+![学院表增删改查](docs/screenshots/01-college-crud.png)
+
+![学生表增删改查](docs/screenshots/02-student-crud.png)
+
+![DateTest最终数据](docs/screenshots/03-datetest-tables.png)
+
+完整日志见 `docs/screenshots/run-log.txt`。
+
+## 八、Git 仓库
+
+本地仓库：`E:\java\作业1 JDBC工具的设计与开发`
+
+```bash
+git log --oneline
+# abbdb35 feat: implement JDBCTool ORM with student and college CRUD demo
+```
