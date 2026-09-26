@@ -1,0 +1,44 @@
+========== JDBCTool 简易 ORM 演示 ==========
+
+---------- 学院表 college 增删改查 ----------
+【新增】插入 3 条学院记录
+[SQL] INSERT INTO college (id, name, code) VALUES (?, ?, ?)  参数=[C001, 计算机学院, CS]  影响行数=1
+[SQL] INSERT INTO college (id, name, code) VALUES (?, ?, ?)  参数=[C002, 软件学院, SE]  影响行数=1
+[SQL] INSERT INTO college (id, name, code) VALUES (?, ?, ?)  参数=[C003, 数学学院, MATH]  影响行数=1
+【查询全部】
+  College{id='C001', name='计算机学院', code='CS'}
+  College{id='C002', name='软件学院', code='SE'}
+  College{id='C003', name='数学学院', code='MATH'}
+【按主键查询】id = C002
+  结果: College{id='C002', name='软件学院', code='SE'}
+【更新】将软件学院代码 SE 改为 SOFT
+[SQL] UPDATE college SET name = ?, code = ? WHERE id = ?  参数=[软件学院, SOFT, C002]  影响行数=1
+  更新后: College{id='C002', name='软件学院', code='SOFT'}
+【删除】删除数学学院 C003
+[SQL] DELETE FROM college WHERE id = ?  参数=[C003]  影响行数=1
+【删除后全部学院】
+  College{id='C001', name='计算机学院', code='CS'}
+  College{id='C002', name='软件学院', code='SOFT'}
+
+---------- 学生表 student 增删改查 ----------
+【新增】插入 3 名学生
+[SQL] INSERT INTO student (id, name, major, age, enrollment_time, graduated, tuition) VALUES (?, ?, ?, ?, ?, ?, ?)  参数=[S001, 张三, 软件工程, 20, 2023-09-01, false, 5800.00]  影响行数=1
+[SQL] INSERT INTO student (id, name, major, age, enrollment_time, graduated, tuition) VALUES (?, ?, ?, ?, ?, ?, ?)  参数=[S002, 李四, 计算机科学与技术, 21, 2022-09-01, false, 6200.50]  影响行数=1
+[SQL] INSERT INTO student (id, name, major, age, enrollment_time, graduated, tuition) VALUES (?, ?, ?, ?, ?, ?, ?)  参数=[S003, 王五, 数据科学, 22, 2021-09-01, true, 5000.00]  影响行数=1
+【查询全部】（resultSetToList 反射映射）
+  Student{id='S001', name='张三', major='软件工程', age=20, enrollmentTime=2023-09-01, graduated=false, tuition=5800.00}
+  Student{id='S002', name='李四', major='计算机科学与技术', age=21, enrollmentTime=2022-09-01, graduated=false, tuition=6200.50}
+  Student{id='S003', name='王五', major='数据科学', age=22, enrollmentTime=2021-09-01, graduated=true, tuition=5000.00}
+【按主键查询】id = S001
+  结果: Student{id='S001', name='张三', major='软件工程', age=20, enrollmentTime=2023-09-01, graduated=false, tuition=5800.00}
+【更新】张三已毕业，学费调整为 6000.00
+[SQL] UPDATE student SET name = ?, major = ?, age = ?, enrollment_time = ?, graduated = ?, tuition = ? WHERE id = ?  参数=[张三, 软件工程, 20, 2023-09-01, true, 6000.00, S001]  影响行数=1
+  更新后: Student{id='S001', name='张三', major='软件工程', age=20, enrollmentTime=2023-09-01, graduated=true, tuition=6000.00}
+【删除】删除王五 S003
+[SQL] DELETE FROM student WHERE id = ?  参数=[S003]  影响行数=1
+【删除后全部学生】
+  Student{id='S001', name='张三', major='软件工程', age=20, enrollmentTime=2023-09-01, graduated=true, tuition=6000.00}
+  Student{id='S002', name='李四', major='计算机科学与技术', age=21, enrollmentTime=2022-09-01, graduated=false, tuition=6200.50}
+========== 全部演示完成 ==========
+
+Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
