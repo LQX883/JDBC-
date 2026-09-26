@@ -98,9 +98,12 @@ mvn -q compile exec:java
 
 ## 八、Git 仓库
 
-本地仓库：`E:\java\作业1 JDBC工具的设计与开发`
+远程仓库 URL：
+
+https://github.com/LQX883/JDBC-
 
 ```bash
-git log --oneline
-# abbdb35 feat: implement JDBCTool ORM with student and college CRUD demo
+git clone https://github.com/LQX883/JDBC-.git
 ```
+
+运行前请复制 `src/main/resources/db.properties.example` 为 `db.properties`，并填入本机 MySQL 密码。
